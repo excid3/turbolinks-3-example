@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @forum_thread.name %></h1>
+
+<span><%= pluralize @forum_thread.forum_posts.count, "Post" %></span>
+<%= link_to 'Edit', edit_forum_thread_path(@forum_thread) %>
+
+<div id="comments">
+  <% @forum_thread.forum_posts.each do |forum_post| %>
+    <div id="comments:<%= forum_post.id %>">
+      <%= simple_format forum_post.body %>
+    </div>
+  <% end %>
+</div>
+
+<hr />
+<%= render partial: "forum_posts/form" %>

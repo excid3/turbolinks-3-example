@@ -1,0 +1,8 @@
+<%= form_for [@forum_thread, @forum_post], remote: true do |f| %>
+  <% if @forum_post.errors.any? %>
+    <div>ERRORS</div>
+  <% end %>
+
+  <div><%= f.text_area :body %></div>
+  <%= f.submit %>
+<% end %>
